@@ -21,26 +21,10 @@ namespace Gamepad_Swagger_Station
             InitializeComponent();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            txtOutput.AppendText(string.Format("[{0}] Gamepad Swagger Station loaded", DateTime.Now));
-            ConnectController();
-        }
-
         private void ConnectController()
         {
             gamepad = new Controller(UserIndex.One);
             consoleOutput(gamepad.IsConnected ? "Gamepad is connected." : "Gamepad is not connected.");
-        }
-
-        private void refreshGamepadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConnectController();
-        }
-        
-        private void updateTimer_Tick(object sender, EventArgs e)
-        {
-            updateStats();
         }
 
         private void consoleOutput(string text)
@@ -70,6 +54,36 @@ namespace Gamepad_Swagger_Station
 
             clbShoulders.SetItemChecked(0, gamepadState.Gamepad.Buttons.HasFlag(GamepadButtonFlags.LeftShoulder));
             clbShoulders.SetItemChecked(1, gamepadState.Gamepad.Buttons.HasFlag(GamepadButtonFlags.RightShoulder));
+
+            pbLeftX.Value = gamepadState.Gamepad.LeftThumbX + 32768;
+            pbLeftY.Value = gamepadState.Gamepad.LeftThumbY + 32768;
+            pbRightX.Value = gamepadState.Gamepad.RightThumbX + 32768;
+            pbRightY.Value = gamepadState.Gamepad.RightThumbY + 32768;
+            pbLeftT.Value = gamepadState.Gamepad.LeftTrigger;
+            pbRightT.Value = gamepadState.Gamepad.RightTrigger;
+
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            txtOutput.AppendText(string.Format("[{0}] Gamepad Swagger Station loaded", DateTime.Now));
+            ConnectController();
+        }
+
+        private void refreshGamepadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConnectController();
+        }
+
+        private void updateTimer_Tick(object sender, EventArgs e)
+        {
+            updateStats();
+        }
+
+        private void menuBoxPort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            arduinoSerialPort.PortName = menuBoxPort.SelectedItem.ToString();
+            consoleOutput("Port changed to " + arduinoSerialPort.PortName);
         }
     }
 }
