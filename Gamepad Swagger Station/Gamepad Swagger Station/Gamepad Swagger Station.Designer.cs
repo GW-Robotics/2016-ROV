@@ -79,12 +79,12 @@
             // 
             // txtOutput
             // 
-            this.txtOutput.Location = new System.Drawing.Point(12, 313);
+            this.txtOutput.Location = new System.Drawing.Point(12, 258);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ReadOnly = true;
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(467, 78);
+            this.txtOutput.Size = new System.Drawing.Size(364, 66);
             this.txtOutput.TabIndex = 0;
             // 
             // menuStrip1
@@ -93,7 +93,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(491, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(389, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -175,7 +175,7 @@
             this.gbJoysticks.Controls.Add(this.panel1);
             this.gbJoysticks.Location = new System.Drawing.Point(12, 27);
             this.gbJoysticks.Name = "gbJoysticks";
-            this.gbJoysticks.Size = new System.Drawing.Size(392, 233);
+            this.gbJoysticks.Size = new System.Drawing.Size(364, 130);
             this.gbJoysticks.TabIndex = 2;
             this.gbJoysticks.TabStop = false;
             this.gbJoysticks.Text = "Joysticks";
@@ -186,7 +186,7 @@
             this.panel1.Controls.Add(this.pbLeftX);
             this.panel1.Location = new System.Drawing.Point(6, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(380, 30);
+            this.panel1.Size = new System.Drawing.Size(173, 30);
             this.panel1.TabIndex = 1;
             // 
             // lblAxis
@@ -203,7 +203,7 @@
             this.pbLeftX.Location = new System.Drawing.Point(51, 3);
             this.pbLeftX.Maximum = 65536;
             this.pbLeftX.Name = "pbLeftX";
-            this.pbLeftX.Size = new System.Drawing.Size(326, 23);
+            this.pbLeftX.Size = new System.Drawing.Size(118, 23);
             this.pbLeftX.Step = 1;
             this.pbLeftX.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbLeftX.TabIndex = 0;
@@ -215,9 +215,9 @@
             this.gbButtons.Controls.Add(this.clbThumbs);
             this.gbButtons.Controls.Add(this.clbSelectStart);
             this.gbButtons.Controls.Add(this.clbABXY);
-            this.gbButtons.Location = new System.Drawing.Point(410, 27);
+            this.gbButtons.Location = new System.Drawing.Point(12, 163);
             this.gbButtons.Name = "gbButtons";
-            this.gbButtons.Size = new System.Drawing.Size(69, 280);
+            this.gbButtons.Size = new System.Drawing.Size(364, 89);
             this.gbButtons.TabIndex = 3;
             this.gbButtons.TabStop = false;
             this.gbButtons.Text = "Buttons";
@@ -242,7 +242,7 @@
             "Down",
             "Left",
             "Right"});
-            this.clbDPad.Location = new System.Drawing.Point(6, 169);
+            this.clbDPad.Location = new System.Drawing.Point(68, 19);
             this.clbDPad.Name = "clbDPad";
             this.clbDPad.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.clbDPad.Size = new System.Drawing.Size(56, 64);
@@ -254,7 +254,7 @@
             this.clbThumbs.Items.AddRange(new object[] {
             "L3",
             "R3"});
-            this.clbThumbs.Location = new System.Drawing.Point(6, 129);
+            this.clbThumbs.Location = new System.Drawing.Point(130, 19);
             this.clbThumbs.Name = "clbThumbs";
             this.clbThumbs.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.clbThumbs.Size = new System.Drawing.Size(56, 34);
@@ -266,7 +266,7 @@
             this.clbSelectStart.Items.AddRange(new object[] {
             "Select",
             "Start"});
-            this.clbSelectStart.Location = new System.Drawing.Point(6, 89);
+            this.clbSelectStart.Location = new System.Drawing.Point(192, 19);
             this.clbSelectStart.Name = "clbSelectStart";
             this.clbSelectStart.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.clbSelectStart.Size = new System.Drawing.Size(56, 34);
@@ -295,9 +295,9 @@
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pbLeftY);
-            this.panel2.Location = new System.Drawing.Point(6, 55);
+            this.panel2.Location = new System.Drawing.Point(185, 19);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(380, 30);
+            this.panel2.Size = new System.Drawing.Size(173, 30);
             this.panel2.TabIndex = 2;
             // 
             // label1
@@ -314,7 +314,7 @@
             this.pbLeftY.Location = new System.Drawing.Point(51, 3);
             this.pbLeftY.Maximum = 65536;
             this.pbLeftY.Name = "pbLeftY";
-            this.pbLeftY.Size = new System.Drawing.Size(326, 23);
+            this.pbLeftY.Size = new System.Drawing.Size(118, 23);
             this.pbLeftY.Step = 1;
             this.pbLeftY.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbLeftY.TabIndex = 0;
@@ -323,9 +323,9 @@
             // 
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.pbRightX);
-            this.panel3.Location = new System.Drawing.Point(6, 91);
+            this.panel3.Location = new System.Drawing.Point(6, 55);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(380, 30);
+            this.panel3.Size = new System.Drawing.Size(173, 30);
             this.panel3.TabIndex = 2;
             // 
             // label2
@@ -342,7 +342,7 @@
             this.pbRightX.Location = new System.Drawing.Point(51, 3);
             this.pbRightX.Maximum = 65536;
             this.pbRightX.Name = "pbRightX";
-            this.pbRightX.Size = new System.Drawing.Size(326, 23);
+            this.pbRightX.Size = new System.Drawing.Size(118, 23);
             this.pbRightX.Step = 1;
             this.pbRightX.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbRightX.TabIndex = 0;
@@ -351,9 +351,9 @@
             // 
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.pbRightY);
-            this.panel4.Location = new System.Drawing.Point(6, 127);
+            this.panel4.Location = new System.Drawing.Point(185, 55);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(380, 30);
+            this.panel4.Size = new System.Drawing.Size(173, 30);
             this.panel4.TabIndex = 2;
             // 
             // label3
@@ -370,7 +370,7 @@
             this.pbRightY.Location = new System.Drawing.Point(51, 3);
             this.pbRightY.Maximum = 65536;
             this.pbRightY.Name = "pbRightY";
-            this.pbRightY.Size = new System.Drawing.Size(326, 23);
+            this.pbRightY.Size = new System.Drawing.Size(118, 23);
             this.pbRightY.Step = 1;
             this.pbRightY.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbRightY.TabIndex = 0;
@@ -379,9 +379,9 @@
             // 
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.pbLeftT);
-            this.panel5.Location = new System.Drawing.Point(6, 163);
+            this.panel5.Location = new System.Drawing.Point(6, 91);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(380, 30);
+            this.panel5.Size = new System.Drawing.Size(173, 30);
             this.panel5.TabIndex = 2;
             // 
             // label4
@@ -398,7 +398,7 @@
             this.pbLeftT.Location = new System.Drawing.Point(51, 3);
             this.pbLeftT.Maximum = 255;
             this.pbLeftT.Name = "pbLeftT";
-            this.pbLeftT.Size = new System.Drawing.Size(326, 23);
+            this.pbLeftT.Size = new System.Drawing.Size(118, 23);
             this.pbLeftT.Step = 1;
             this.pbLeftT.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbLeftT.TabIndex = 0;
@@ -407,9 +407,9 @@
             // 
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.pbRightT);
-            this.panel6.Location = new System.Drawing.Point(6, 199);
+            this.panel6.Location = new System.Drawing.Point(185, 91);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(380, 30);
+            this.panel6.Size = new System.Drawing.Size(173, 30);
             this.panel6.TabIndex = 2;
             // 
             // label5
@@ -426,7 +426,7 @@
             this.pbRightT.Location = new System.Drawing.Point(51, 3);
             this.pbRightT.Maximum = 255;
             this.pbRightT.Name = "pbRightT";
-            this.pbRightT.Size = new System.Drawing.Size(326, 23);
+            this.pbRightT.Size = new System.Drawing.Size(118, 23);
             this.pbRightT.Step = 1;
             this.pbRightT.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbRightT.TabIndex = 0;
@@ -435,7 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 400);
+            this.ClientSize = new System.Drawing.Size(389, 337);
             this.Controls.Add(this.gbButtons);
             this.Controls.Add(this.gbJoysticks);
             this.Controls.Add(this.txtOutput);
