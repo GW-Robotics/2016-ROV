@@ -41,6 +41,21 @@
             this.menuBoxPort = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.gbJoysticks = new System.Windows.Forms.GroupBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pbRightT = new System.Windows.Forms.ProgressBar();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pbLeftT = new System.Windows.Forms.ProgressBar();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pbRightY = new System.Windows.Forms.ProgressBar();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pbRightX = new System.Windows.Forms.ProgressBar();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbLeftY = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblAxis = new System.Windows.Forms.Label();
             this.pbLeftX = new System.Windows.Forms.ProgressBar();
@@ -51,30 +66,19 @@
             this.clbSelectStart = new System.Windows.Forms.CheckedListBox();
             this.clbABXY = new System.Windows.Forms.CheckedListBox();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pbLeftY = new System.Windows.Forms.ProgressBar();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pbRightX = new System.Windows.Forms.ProgressBar();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pbRightY = new System.Windows.Forms.ProgressBar();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pbLeftT = new System.Windows.Forms.ProgressBar();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pbRightT = new System.Windows.Forms.ProgressBar();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.joystickInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.gbJoysticks.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbButtons.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtOutput
@@ -90,6 +94,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -180,6 +185,146 @@
             this.gbJoysticks.TabStop = false;
             this.gbJoysticks.Text = "Joysticks";
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label5);
+            this.panel6.Controls.Add(this.pbRightT);
+            this.panel6.Location = new System.Drawing.Point(185, 91);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(173, 30);
+            this.panel6.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Right T";
+            // 
+            // pbRightT
+            // 
+            this.pbRightT.Location = new System.Drawing.Point(51, 3);
+            this.pbRightT.Maximum = 255;
+            this.pbRightT.Name = "pbRightT";
+            this.pbRightT.Size = new System.Drawing.Size(118, 23);
+            this.pbRightT.Step = 1;
+            this.pbRightT.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pbRightT.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.pbLeftT);
+            this.panel5.Location = new System.Drawing.Point(6, 91);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(173, 30);
+            this.panel5.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Left T";
+            // 
+            // pbLeftT
+            // 
+            this.pbLeftT.Location = new System.Drawing.Point(51, 3);
+            this.pbLeftT.Maximum = 255;
+            this.pbLeftT.Name = "pbLeftT";
+            this.pbLeftT.Size = new System.Drawing.Size(118, 23);
+            this.pbLeftT.Step = 1;
+            this.pbLeftT.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pbLeftT.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.pbRightY);
+            this.panel4.Location = new System.Drawing.Point(185, 55);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(173, 30);
+            this.panel4.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Right Y";
+            // 
+            // pbRightY
+            // 
+            this.pbRightY.Location = new System.Drawing.Point(51, 3);
+            this.pbRightY.Maximum = 65536;
+            this.pbRightY.Name = "pbRightY";
+            this.pbRightY.Size = new System.Drawing.Size(118, 23);
+            this.pbRightY.Step = 1;
+            this.pbRightY.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pbRightY.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.pbRightX);
+            this.panel3.Location = new System.Drawing.Point(6, 55);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(173, 30);
+            this.panel3.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Right X";
+            // 
+            // pbRightX
+            // 
+            this.pbRightX.Location = new System.Drawing.Point(51, 3);
+            this.pbRightX.Maximum = 65536;
+            this.pbRightX.Name = "pbRightX";
+            this.pbRightX.Size = new System.Drawing.Size(118, 23);
+            this.pbRightX.Step = 1;
+            this.pbRightX.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pbRightX.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.pbLeftY);
+            this.panel2.Location = new System.Drawing.Point(185, 19);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(173, 30);
+            this.panel2.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Left Y";
+            // 
+            // pbLeftY
+            // 
+            this.pbLeftY.Location = new System.Drawing.Point(51, 3);
+            this.pbLeftY.Maximum = 65536;
+            this.pbLeftY.Name = "pbLeftY";
+            this.pbLeftY.Size = new System.Drawing.Size(118, 23);
+            this.pbLeftY.Step = 1;
+            this.pbLeftY.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pbLeftY.TabIndex = 0;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lblAxis);
@@ -228,7 +373,7 @@
             this.clbShoulders.Items.AddRange(new object[] {
             "LB",
             "RB"});
-            this.clbShoulders.Location = new System.Drawing.Point(6, 239);
+            this.clbShoulders.Location = new System.Drawing.Point(254, 19);
             this.clbShoulders.Name = "clbShoulders";
             this.clbShoulders.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.clbShoulders.Size = new System.Drawing.Size(56, 34);
@@ -291,151 +436,40 @@
             this.updateTimer.Enabled = true;
             this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
-            // panel2
+            // viewToolStripMenuItem
             // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.pbLeftY);
-            this.panel2.Location = new System.Drawing.Point(185, 19);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(173, 30);
-            this.panel2.TabIndex = 2;
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.buttonInputToolStripMenuItem,
+            this.joystickInputToolStripMenuItem,
+            this.toolStripSeparator3});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
             // 
-            // label1
+            // buttonInputToolStripMenuItem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Left Y";
+            this.buttonInputToolStripMenuItem.Name = "buttonInputToolStripMenuItem";
+            this.buttonInputToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buttonInputToolStripMenuItem.Text = "Button Input";
+            this.buttonInputToolStripMenuItem.Click += new System.EventHandler(this.buttonInputToolStripMenuItem_Click);
             // 
-            // pbLeftY
+            // joystickInputToolStripMenuItem
             // 
-            this.pbLeftY.Location = new System.Drawing.Point(51, 3);
-            this.pbLeftY.Maximum = 65536;
-            this.pbLeftY.Name = "pbLeftY";
-            this.pbLeftY.Size = new System.Drawing.Size(118, 23);
-            this.pbLeftY.Step = 1;
-            this.pbLeftY.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pbLeftY.TabIndex = 0;
+            this.joystickInputToolStripMenuItem.Name = "joystickInputToolStripMenuItem";
+            this.joystickInputToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.joystickInputToolStripMenuItem.Text = "Joystick Input";
+            this.joystickInputToolStripMenuItem.Click += new System.EventHandler(this.joystickInputToolStripMenuItem_Click);
             // 
-            // panel3
+            // toolStripSeparator3
             // 
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.pbRightX);
-            this.panel3.Location = new System.Drawing.Point(6, 55);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(173, 30);
-            this.panel3.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Right X";
-            // 
-            // pbRightX
-            // 
-            this.pbRightX.Location = new System.Drawing.Point(51, 3);
-            this.pbRightX.Maximum = 65536;
-            this.pbRightX.Name = "pbRightX";
-            this.pbRightX.Size = new System.Drawing.Size(118, 23);
-            this.pbRightX.Step = 1;
-            this.pbRightX.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pbRightX.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.pbRightY);
-            this.panel4.Location = new System.Drawing.Point(185, 55);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(173, 30);
-            this.panel4.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Right Y";
-            // 
-            // pbRightY
-            // 
-            this.pbRightY.Location = new System.Drawing.Point(51, 3);
-            this.pbRightY.Maximum = 65536;
-            this.pbRightY.Name = "pbRightY";
-            this.pbRightY.Size = new System.Drawing.Size(118, 23);
-            this.pbRightY.Step = 1;
-            this.pbRightY.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pbRightY.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.pbLeftT);
-            this.panel5.Location = new System.Drawing.Point(6, 91);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(173, 30);
-            this.panel5.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Left T";
-            // 
-            // pbLeftT
-            // 
-            this.pbLeftT.Location = new System.Drawing.Point(51, 3);
-            this.pbLeftT.Maximum = 255;
-            this.pbLeftT.Name = "pbLeftT";
-            this.pbLeftT.Size = new System.Drawing.Size(118, 23);
-            this.pbLeftT.Step = 1;
-            this.pbLeftT.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pbLeftT.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label5);
-            this.panel6.Controls.Add(this.pbRightT);
-            this.panel6.Location = new System.Drawing.Point(185, 91);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(173, 30);
-            this.panel6.TabIndex = 2;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Right T";
-            // 
-            // pbRightT
-            // 
-            this.pbRightT.Location = new System.Drawing.Point(51, 3);
-            this.pbRightT.Maximum = 255;
-            this.pbRightT.Name = "pbRightT";
-            this.pbRightT.Size = new System.Drawing.Size(118, 23);
-            this.pbRightT.Step = 1;
-            this.pbRightT.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pbRightT.TabIndex = 0;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 337);
+            this.ClientSize = new System.Drawing.Size(389, 335);
             this.Controls.Add(this.gbButtons);
             this.Controls.Add(this.gbJoysticks);
             this.Controls.Add(this.txtOutput);
@@ -443,23 +477,24 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Gamepad Swagger Station";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gbJoysticks.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gbButtons.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,6 +539,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar pbLeftY;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buttonInputToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem joystickInputToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 
