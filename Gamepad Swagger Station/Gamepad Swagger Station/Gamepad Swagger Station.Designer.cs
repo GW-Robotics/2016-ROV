@@ -70,6 +70,7 @@
             this.buttonInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.joystickInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1.SuspendLayout();
             this.gbJoysticks.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -98,7 +99,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(389, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(387, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -465,11 +466,20 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 339);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(387, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 335);
+            this.ClientSize = new System.Drawing.Size(387, 361);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbButtons);
             this.Controls.Add(this.gbJoysticks);
             this.Controls.Add(this.txtOutput);
@@ -543,6 +553,7 @@
         private System.Windows.Forms.ToolStripMenuItem buttonInputToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem joystickInputToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 

@@ -24,7 +24,7 @@ namespace Gamepad_Swagger_Station
 
         private bool verboseJoystick = false, verboseButton = false;
 
-        private double[] joystickValues = new double[6];
+        private float[] joystickValues = new float[6];
 
         public frmMain()
         {
@@ -65,10 +65,10 @@ namespace Gamepad_Swagger_Station
             buttonStatusesCurrent[leftShoulder] = gamepadState.Gamepad.Buttons.HasFlag(GamepadButtonFlags.LeftShoulder);
             buttonStatusesCurrent[rightShoulder] = gamepadState.Gamepad.Buttons.HasFlag(GamepadButtonFlags.RightShoulder);
 
-            joystickValues[leftX] = gamepadState.Gamepad.LeftThumbX / 32768.0;
-            joystickValues[leftY] = gamepadState.Gamepad.LeftThumbY / 32768.0;
-            joystickValues[rightX] = gamepadState.Gamepad.RightThumbX / 32768.0;
-            joystickValues[rightY] = gamepadState.Gamepad.RightThumbY / 32768.0;
+            joystickValues[leftX] = gamepadState.Gamepad.LeftThumbX / 32768f;
+            joystickValues[leftY] = gamepadState.Gamepad.LeftThumbY / 32768f;
+            joystickValues[rightX] = gamepadState.Gamepad.RightThumbX / 32768f;
+            joystickValues[rightY] = gamepadState.Gamepad.RightThumbY / 32768f;
             joystickValues[leftTrigger] = gamepadState.Gamepad.LeftTrigger / 255;
             joystickValues[rightTrigger] = gamepadState.Gamepad.RightTrigger / 255;
         }
