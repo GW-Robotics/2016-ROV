@@ -1,7 +1,14 @@
+#include <Servo.h>
+#include <ESC.h>
 #include <Gamepad.h>
 
-#define ledPin 13
+#define escFrontLeft  2
+#define escFrontRight 3
+#define escBackLeft   4
+#define escBackRight  5
+#define ledPin        13
 
+ESC frontLeft = ESC(escFrontLeft), frontRight = ESC(escFrontRight), backLeft = ESC(escBackLeft), backRight = ESC(escBackRight);
 Gamepad gamepad = Gamepad();
 
 void setup() {
