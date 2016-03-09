@@ -9,14 +9,16 @@
 #define ledPin        13
 
 ESC frontLeft = ESC(escFrontLeft), frontRight = ESC(escFrontRight), backLeft = ESC(escBackLeft), backRight = ESC(escBackRight);
-Gamepad gamepad = Gamepad();
+Gamepad gamepad;
 
 void setup() {
   // put your setup code here, to run once:
+  gamepad = Gamepad();
   pinMode(13, OUTPUT);
 }
 
 void loop() {
+  gamepad.readStream();
   // put your main code here, to run repeatedly: 
     if (gamepad.isPressed(gamepad.a)) {
       digitalWrite(13, HIGH);
