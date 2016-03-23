@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using SharpDX.XInput;
+using System.Net.Sockets;
 
 namespace Gamepad_Swagger_Station
 {
@@ -18,17 +19,40 @@ namespace Gamepad_Swagger_Station
 
         private bool[] buttonStatusesCurrent = new bool[14];
         private bool[] buttonStatusesPrevious = new bool[14];
+        private float[] joystickValues = new float[6];
 
         private const int a = 0, b = 1, x = 2, y = 3, select = 4, start = 5, up = 6, down = 7, left = 8, right = 9, leftThumb = 10, rightThumb = 11, leftShoulder = 12, rightShoulder = 13;
         private const int leftX = 0, leftY = 1, rightX = 2, rightY = 3, leftTrigger = 4, rightTrigger = 5;
 
         private bool verboseJoystick = false, verboseButton = false;
 
-        private float[] joystickValues = new float[6];
+        private bool useSerial = true, useTCP = false;
+        
+        private TcpClient tcpClient;
+        private NetworkStream netStream;
+        private const string IP = "192.168.1.74";
+        private const int TCP_PORT = 80;
 
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void serialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tcpClient.Close();
+            netStream.Close();
+            useSerial = true;
+            useTCP = false;
+            ConnectArduino();
+        }
+
+        private void tCPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            arduinoSerialPort.Close();
+            useSerial = false;
+            useTCP = true;
+            ConnectESPDuino();
         }
 
         private void ConnectController()
@@ -73,24 +97,44 @@ namespace Gamepad_Swagger_Station
             joystickValues[rightTrigger] = gamepadState.Gamepad.RightTrigger / 255;
         }
 
-        private void SendInput()
+        private void SendSerialInput()
         {
             for (int i = 0; i < buttonStatusesCurrent.Length; i++)
             {
                 if (buttonStatusesCurrent[i] != buttonStatusesPrevious[i])
                 {
-                    SendButtonValue(i, buttonStatusesCurrent[i]);
+                    SendSerialButtonOutput(i, buttonStatusesCurrent[i]);
                 }
 
                 buttonStatusesPrevious[i] = buttonStatusesCurrent[i];
             }
 
-            SendJoystickValue(leftX);
-            SendJoystickValue(leftY);
-            SendJoystickValue(rightX);
-            SendJoystickValue(rightY);
-            SendJoystickValue(leftTrigger);
-            SendJoystickValue(rightTrigger);
+            SendSerialJoystckOutput(leftX);
+            SendSerialJoystckOutput(leftY);
+            SendSerialJoystckOutput(rightX);
+            SendSerialJoystckOutput(rightY);
+            SendSerialJoystckOutput(leftTrigger);
+            SendSerialJoystckOutput(rightTrigger);
+        }
+
+        private void SendWifiInput()
+        {
+            for (int i = 0; i < buttonStatusesCurrent.Length; i++)
+            {
+                if (buttonStatusesCurrent[i] != buttonStatusesPrevious[i])
+                {
+                    SendWifiButtonOutput(i, buttonStatusesCurrent[i]);
+                }
+
+                buttonStatusesPrevious[i] = buttonStatusesCurrent[i];
+            }
+
+            SendWifiJoystckOutput(leftX);
+            SendWifiJoystckOutput(leftY);
+            SendWifiJoystckOutput(rightX);
+            SendWifiJoystckOutput(rightY);
+            SendWifiJoystckOutput(leftTrigger);
+            SendWifiJoystckOutput(rightTrigger);
         }
 
         private void ReadArduino()
@@ -101,7 +145,16 @@ namespace Gamepad_Swagger_Station
             }
         }
 
-        private void SendButtonValue(int value, bool buttonState)
+        private void ReadESPDuino()
+        {
+            if (netStream.CanRead)
+            {
+                
+                consoleOutput("Arduino: " + arduinoSerialPort.ReadLine());
+            }
+        }
+
+        private void SendSerialButtonOutput(int value, bool buttonState)
         {
             if (arduinoSerialPort.IsOpen)
             {
@@ -114,7 +167,33 @@ namespace Gamepad_Swagger_Station
             }
         }
 
-        private void SendJoystickValue(int joystick)
+        private void SendSerialJoystckOutput(int joystick)
+        {
+            if (arduinoSerialPort.IsOpen)
+            {
+                string toSend = string.Format("#{0}:{1}<", joystick, joystickValues[joystick]);
+                arduinoSerialPort.Write(toSend);
+                if (verboseJoystick)
+                {
+                    consoleOutput(toSend);
+                }
+            }
+        }
+
+        private void SendWifiButtonOutput(int value, bool buttonState)
+        {
+            if (arduinoSerialPort.IsOpen)
+            {
+                string toSend = string.Format("!{0}:{1}<", value, buttonState.ToString());
+                arduinoSerialPort.Write(toSend);
+                if (verboseButton)
+                {
+                    consoleOutput(toSend);
+                }
+            }
+        }
+
+        private void SendWifiJoystckOutput(int joystick)
         {
             if (arduinoSerialPort.IsOpen)
             {
@@ -175,16 +254,31 @@ namespace Gamepad_Swagger_Station
             }
         }
 
+        private void ConnectESPDuino()
+        {
+            tcpClient = new TcpClient(IP, TCP_PORT);
+            netStream = tcpClient.GetStream();
+        }
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             txtOutput.AppendText(string.Format("[{0}] Gamepad Swagger Station loaded", DateTime.Now));
             ConnectController();
-            ConnectArduino();
+            if (useSerial)
+            {
+                ConnectArduino();
+            }
+            else if (useTCP)
+            {
+                ConnectESPDuino();
+            }
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             arduinoSerialPort.Close();
+            tcpClient.Close();
+            netStream.Close();
         }
 
         private void refreshGamepadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -196,8 +290,16 @@ namespace Gamepad_Swagger_Station
         {
             ReadController();
             UpdateStats();
-            SendInput();
-            //ReadArduino();
+
+            if (useSerial && !useTCP)
+            {
+                SendSerialInput();
+                //ReadArduino();
+            } else if (!useSerial && useTCP)
+            {
+                SendWifiInput();
+                //ReadESPDuino();
+            }
         }
 
         private void menuBoxPort_SelectedIndexChanged(object sender, EventArgs e)
