@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using SharpDX.XInput;
 using System.Net.Sockets;
+using System.IO;
 
 namespace Gamepad_Swagger_Station
 {
@@ -29,9 +30,7 @@ namespace Gamepad_Swagger_Station
         private bool useSerial = true, useTCP = false;
         
         private TcpClient tcpClient;
-        private NetworkStream netStream;
-        private const string IP = "192.168.1.74";
-        private const int TCP_PORT = 80;
+        private Stream stream;
 
         public frmMain()
         {
@@ -147,10 +146,17 @@ namespace Gamepad_Swagger_Station
 
         private void ReadESPDuino()
         {
-            if (netStream.CanRead)
+            if (stream.CanRead)
             {
-                
-                consoleOutput("Arduino: " + arduinoSerialPort.ReadLine());
+                string message = "";
+                byte[] bb = new byte[100];
+                int k = stream.Read(bb, 0, 100);
+
+                for (int i = 0; i < k; i++)
+                {
+                    message = string.Concat(message, Convert.ToChar(bb[i]));
+                }
+                consoleOutput("ESPDuino: " + message);
             }
         }
 
@@ -182,27 +188,29 @@ namespace Gamepad_Swagger_Station
 
         private void SendWifiButtonOutput(int value, bool buttonState)
         {
-            if (arduinoSerialPort.IsOpen)
+            ASCIIEncoding asen = new ASCIIEncoding();
+            string toSend = string.Format("!{0}:{1}<", value, buttonState.ToString());
+
+            byte[] ba = asen.GetBytes(toSend);
+            stream.Write(ba, 0, ba.Length);
+
+            if (verboseButton)
             {
-                string toSend = string.Format("!{0}:{1}<", value, buttonState.ToString());
-                arduinoSerialPort.Write(toSend);
-                if (verboseButton)
-                {
-                    consoleOutput(toSend);
-                }
+                consoleOutput(toSend);
             }
         }
 
         private void SendWifiJoystckOutput(int joystick)
         {
-            if (arduinoSerialPort.IsOpen)
+            ASCIIEncoding asen = new ASCIIEncoding();
+            string toSend = string.Format("#{0}:{1}<", joystick, joystickValues[joystick]);
+
+            byte[] ba = asen.GetBytes(toSend);
+            stream.Write(ba, 0, ba.Length);
+
+            if (verboseButton)
             {
-                string toSend = string.Format("#{0}:{1}<", joystick, joystickValues[joystick]);
-                arduinoSerialPort.Write(toSend);
-                if (verboseJoystick)
-                {
-                    consoleOutput(toSend);
-                }
+                consoleOutput(toSend);
             }
         }
 
@@ -256,8 +264,14 @@ namespace Gamepad_Swagger_Station
 
         private void ConnectESPDuino()
         {
-            tcpClient = new TcpClient(IP, TCP_PORT);
-            netStream = tcpClient.GetStream();
+            try
+            {
+                tcpClient = new TcpClient();
+                tcpClient.Connect(txtIP.Text, Int32.Parse(txtPort.Text));
+                consoleOutput("Connected successfully to ESPDuino");
+                stream = tcpClient.GetStream();
+            }
+            catch (Exception e) { }
         }
 
         private void frmMain_Load(object sender, EventArgs e)

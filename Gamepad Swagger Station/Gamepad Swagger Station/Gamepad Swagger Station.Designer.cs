@@ -44,6 +44,9 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.menuBoxPort = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.changeCommsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tCPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbJoysticks = new System.Windows.Forms.GroupBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,9 +74,13 @@
             this.clbABXY = new System.Windows.Forms.CheckedListBox();
             this.updateTimer = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.changeCommsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tCPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblIP = new System.Windows.Forms.Label();
+            this.txtIP = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.gbJoysticks.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -83,6 +90,9 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbButtons.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtOutput
@@ -102,7 +112,7 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(387, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(612, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,6 +213,29 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            // 
+            // changeCommsToolStripMenuItem
+            // 
+            this.changeCommsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serialToolStripMenuItem,
+            this.tCPToolStripMenuItem});
+            this.changeCommsToolStripMenuItem.Name = "changeCommsToolStripMenuItem";
+            this.changeCommsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.changeCommsToolStripMenuItem.Text = "Change Comms";
+            // 
+            // serialToolStripMenuItem
+            // 
+            this.serialToolStripMenuItem.Name = "serialToolStripMenuItem";
+            this.serialToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.serialToolStripMenuItem.Text = "Serial";
+            this.serialToolStripMenuItem.Click += new System.EventHandler(this.serialToolStripMenuItem_Click);
+            // 
+            // tCPToolStripMenuItem
+            // 
+            this.tCPToolStripMenuItem.Name = "tCPToolStripMenuItem";
+            this.tCPToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.tCPToolStripMenuItem.Text = "TCP";
+            this.tCPToolStripMenuItem.Click += new System.EventHandler(this.tCPToolStripMenuItem_Click);
             // 
             // gbJoysticks
             // 
@@ -474,38 +507,77 @@
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 339);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(387, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(612, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // changeCommsToolStripMenuItem
+            // groupBox1
             // 
-            this.changeCommsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.serialToolStripMenuItem,
-            this.tCPToolStripMenuItem});
-            this.changeCommsToolStripMenuItem.Name = "changeCommsToolStripMenuItem";
-            this.changeCommsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.changeCommsToolStripMenuItem.Text = "Change Comms";
+            this.groupBox1.Controls.Add(this.panel8);
+            this.groupBox1.Controls.Add(this.panel7);
+            this.groupBox1.Location = new System.Drawing.Point(382, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(218, 92);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "WiFi Communications Settings";
             // 
-            // serialToolStripMenuItem
+            // panel7
             // 
-            this.serialToolStripMenuItem.Name = "serialToolStripMenuItem";
-            this.serialToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.serialToolStripMenuItem.Text = "Serial";
-            this.serialToolStripMenuItem.Click += new System.EventHandler(this.serialToolStripMenuItem_Click);
+            this.panel7.Controls.Add(this.txtIP);
+            this.panel7.Controls.Add(this.lblIP);
+            this.panel7.Location = new System.Drawing.Point(6, 19);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(206, 30);
+            this.panel7.TabIndex = 0;
             // 
-            // tCPToolStripMenuItem
+            // lblIP
             // 
-            this.tCPToolStripMenuItem.Name = "tCPToolStripMenuItem";
-            this.tCPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.tCPToolStripMenuItem.Text = "TCP";
-            this.tCPToolStripMenuItem.Click += new System.EventHandler(this.tCPToolStripMenuItem_Click);
+            this.lblIP.AutoSize = true;
+            this.lblIP.Location = new System.Drawing.Point(3, 9);
+            this.lblIP.Name = "lblIP";
+            this.lblIP.Size = new System.Drawing.Size(17, 13);
+            this.lblIP.TabIndex = 0;
+            this.lblIP.Text = "IP";
+            // 
+            // txtIP
+            // 
+            this.txtIP.Location = new System.Drawing.Point(35, 6);
+            this.txtIP.Name = "txtIP";
+            this.txtIP.Size = new System.Drawing.Size(168, 20);
+            this.txtIP.TabIndex = 1;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.txtPort);
+            this.panel8.Controls.Add(this.label6);
+            this.panel8.Location = new System.Drawing.Point(6, 55);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(206, 30);
+            this.panel8.TabIndex = 2;
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(35, 6);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(168, 20);
+            this.txtPort.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Port";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 361);
+            this.ClientSize = new System.Drawing.Size(612, 361);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbButtons);
             this.Controls.Add(this.gbJoysticks);
@@ -532,6 +604,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gbButtons.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,6 +661,13 @@
         private System.Windows.Forms.ToolStripMenuItem changeCommsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tCPToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.TextBox txtPort;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtIP;
+        private System.Windows.Forms.Label lblIP;
     }
 }
 
